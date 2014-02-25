@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Games</title>
+</head>
+<body>
+<h1>Games in {{ year }}</h1>
+
+<h2>Filter: {{ filter }}</h2>
+<table border="3">
+    <tr>
+        <td>Date</td>
+        <td>Name</td>
+        <td>Platforms</td>
+    </tr>
+    {% for game in games %}
+    <tr>
+        <td>{{ game.date }}</td>
+        <td>{{ game.name }}</td>
+        <td>{{ game.platforms }}</td>
+    </tr>
+    {% endfor %}
+<table>
+</body>
+</html>
