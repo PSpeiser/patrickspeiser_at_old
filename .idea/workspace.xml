@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="95d96c77-29fd-4334-9c74-5d3a31b5655a" name="Default" comment="Reformat Source">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Games/games.py" />
-      <change type="DELETED" beforePath="C:\Users\Doskir\Dropbox\Projects\patrickspeiser_at\Games\models.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Doskir\Dropbox\Projects\patrickspeiser_at\Games\tests.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Doskir\Dropbox\Projects\patrickspeiser_at\Games\views.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Games/urls.py" afterPath="$PROJECT_DIR$/Games/urls.py" />
+    <list default="true" id="95d96c77-29fd-4334-9c74-5d3a31b5655a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Games/games.py" afterPath="$PROJECT_DIR$/Games/games.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="patrickspeiser_at.iws" />
@@ -87,7 +82,7 @@
       <file leaf-file-name="games.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Games/games.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="19" selection-start="354" selection-end="354" vertical-scroll-proportion="0.35473517" vertical-offset="0" max-vertical-offset="1530">
+            <state line="1" column="35" selection-start="88" selection-end="88" vertical-scroll-proportion="0.02728732" vertical-offset="0" max-vertical-offset="1479">
               <folding />
             </state>
           </provider>
@@ -142,8 +137,8 @@
         <option value="$PROJECT_DIR$/Games/views.py" />
         <option value="$PROJECT_DIR$/Games/urls.py" />
         <option value="$PROJECT_DIR$/patrickspeiser_at/urls.py" />
-        <option value="$PROJECT_DIR$/Games/games.py" />
         <option value="$PROJECT_DIR$/patrickspeiser_at/settings.py" />
+        <option value="$PROJECT_DIR$/Games/games.py" />
       </list>
     </option>
   </component>
@@ -603,7 +598,11 @@
       <created>1393428810335</created>
       <updated>1393428810335</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Simplified File Structure">
+      <created>1393429285923</created>
+      <updated>1393429285923</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -641,7 +640,8 @@
     <MESSAGE value="Automatically Scroll to Current Date" />
     <MESSAGE value="Reduce Cache Time to 6 Hours" />
     <MESSAGE value="Reformat Source" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reformat Source" />
+    <MESSAGE value="Simplified File Structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplified File Structure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -723,7 +723,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Games/games.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="19" selection-start="354" selection-end="354" vertical-scroll-proportion="0.35473517" vertical-offset="0" max-vertical-offset="1530">
+        <state line="1" column="35" selection-start="88" selection-end="88" vertical-scroll-proportion="0.02728732" vertical-offset="0" max-vertical-offset="1479">
           <folding />
         </state>
       </provider>
