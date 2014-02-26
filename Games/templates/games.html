@@ -2,6 +2,16 @@
 <html>
 <head>
     <title>Games</title>
+    <style>
+        .center {
+            text-align: center;
+        }
+    </style>
+    <script>window.onload = function () {
+        var el = document.getElementById("target");
+        el.scrollIntoView(true);
+    }</script>
+</head>
 </head>
 <body>
 <h1>Games in {{ year }}</h1>
@@ -14,12 +24,21 @@
         <td>Platforms</td>
     </tr>
     {% for game in games %}
-    <tr>
-        <td>{{ game.date }}</td>
-        <td>{{ game.name }}</td>
-        <td>{{ game.platforms }}</td>
-    </tr>
+        {% if game.name == 'Today' %}
+            <tr>
+                <td>
+                    <strong>{{ game.date }}</strong>
+                </td>
+                <td class="center" id="target"><strong>Today</strong></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>{{ game.date }}</td>
+                <td>{{ game.name }}</td>
+                <td>{{ game.platforms }}</td>
+            </tr>
+        {% endif %}
     {% endfor %}
-<table>
+    <table>
 </body>
 </html>

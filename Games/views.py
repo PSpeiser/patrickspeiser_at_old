@@ -4,13 +4,18 @@ from django.shortcuts import render
 import os
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'Games', 'templates').replace('\\','/'),)
 
-from datetime import date
+from datetime import date,datetime
 year = date.today().year
 goodPlatforms = ['Win','X360','PS3']
 
 @cache_page(60*60*24) #cache for 24 hours
 def games(request):
-    return render(request, 'games.html',{'games':get_games_from_wikipedia(),
+    games = get_games_from_wikipedia()
+    games.append({'date':datetime.now().strftime('%Y-%m-%d'),
+        'name':u'Today',
+        'platforms':'Date'})
+    games.sort(key=lambda x:x['date'])
+    return render(request, 'games.html',{'games':games,
                 'filter':goodPlatforms,
                 'year':year})
 
