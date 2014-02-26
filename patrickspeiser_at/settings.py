@@ -108,7 +108,9 @@ ROOT_URLCONF = 'patrickspeiser_at.urls'
 WSGI_APPLICATION = 'patrickspeiser_at.wsgi.application'
 
 import os
-TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'Games', 'templates').replace('\\','/'),)
+TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'Games', 'templates').replace('\\','/'),
+                 os.path.join(os.path.dirname(__file__), '..', 'Homepage', 'templates').replace('\\','/'),
+                )
 
 INSTALLED_APPS = (
     'django.contrib.auth',
