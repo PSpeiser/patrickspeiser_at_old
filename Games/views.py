@@ -8,7 +8,7 @@ from datetime import date,datetime
 year = date.today().year
 goodPlatforms = ['Win','X360','PS3']
 
-@cache_page(60*60*24) #cache for 24 hours
+@cache_page(60*60*6) #cache for 6 hours
 def games(request):
     games = get_games_from_wikipedia()
     games.append({'date':datetime.now().strftime('%Y-%m-%d'),

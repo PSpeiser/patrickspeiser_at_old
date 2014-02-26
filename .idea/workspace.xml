@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="95d96c77-29fd-4334-9c74-5d3a31b5655a" name="Default" comment="">
+    <list default="true" id="95d96c77-29fd-4334-9c74-5d3a31b5655a" name="Default" comment="Automatically Scroll to Current Date">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Games/views.py" afterPath="$PROJECT_DIR$/Games/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="patrickspeiser_at.iws" />
@@ -70,7 +71,7 @@
       <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Games/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="29" selection-start="685" selection-end="685" vertical-scroll-proportion="0.5184591" vertical-offset="0" max-vertical-offset="1462">
+            <state line="10" column="18" selection-start="322" selection-end="322" vertical-scroll-proportion="0.02728732" vertical-offset="153" max-vertical-offset="1462">
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
               </folding>
@@ -566,7 +567,11 @@
       <created>1393426532614</created>
       <updated>1393426532614</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Automatically Scroll to Current Date">
+      <created>1393426537819</created>
+      <updated>1393426537819</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -721,7 +726,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Games/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="29" selection-start="685" selection-end="685" vertical-scroll-proportion="0.5184591" vertical-offset="0" max-vertical-offset="1462">
+        <state line="10" column="18" selection-start="322" selection-end="322" vertical-scroll-proportion="0.02728732" vertical-offset="153" max-vertical-offset="1462">
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
