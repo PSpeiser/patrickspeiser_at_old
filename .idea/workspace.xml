@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="95d96c77-29fd-4334-9c74-5d3a31b5655a" name="Default" comment="Reduce Cache Time to 6 Hours">
+    <list default="true" id="95d96c77-29fd-4334-9c74-5d3a31b5655a" name="Default" comment="Reformat Source">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Games/games.py" />
+      <change type="DELETED" beforePath="C:\Users\Doskir\Dropbox\Projects\patrickspeiser_at\Games\models.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Doskir\Dropbox\Projects\patrickspeiser_at\Games\tests.py" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Doskir\Dropbox\Projects\patrickspeiser_at\Games\views.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Games/urls.py" afterPath="$PROJECT_DIR$/Games/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Games/views.py" afterPath="$PROJECT_DIR$/Games/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="patrickspeiser_at.iws" />
@@ -36,7 +40,7 @@
       <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/patrickspeiser_at/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="67" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2754">
+            <state line="96" column="25" selection-start="3441" selection-end="3441" vertical-scroll-proportion="0.0" vertical-offset="1519" max-vertical-offset="2754">
               <folding />
             </state>
           </provider>
@@ -45,7 +49,7 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/patrickspeiser_at/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+            <state line="15" column="45" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
               <folding />
             </state>
           </provider>
@@ -54,17 +58,10 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Games/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Games/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-              <folding />
+            <state line="4" column="36" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,13 +84,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Games/views.py">
+      <file leaf-file-name="games.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Games/games.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="38" selection-start="413" selection-end="413" vertical-scroll-proportion="0.3846154" vertical-offset="25" max-vertical-offset="1547">
-              <folding>
-                <element signature="e#0#52#0" expanded="true" />
-              </folding>
+            <state line="13" column="19" selection-start="354" selection-end="354" vertical-scroll-proportion="0.35473517" vertical-offset="0" max-vertical-offset="1530">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Games/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -134,11 +138,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/patrickspeiser_at/urls.py" />
-        <option value="$PROJECT_DIR$/Games/urls.py" />
-        <option value="$PROJECT_DIR$/patrickspeiser_at/settings.py" />
         <option value="$PROJECT_DIR$/Games/templates/games.html" />
         <option value="$PROJECT_DIR$/Games/views.py" />
+        <option value="$PROJECT_DIR$/Games/urls.py" />
+        <option value="$PROJECT_DIR$/patrickspeiser_at/urls.py" />
+        <option value="$PROJECT_DIR$/Games/games.py" />
+        <option value="$PROJECT_DIR$/patrickspeiser_at/settings.py" />
       </list>
     </option>
   </component>
@@ -594,7 +599,11 @@
       <created>1393426804708</created>
       <updated>1393426804708</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Reformat Source">
+      <created>1393428810335</created>
+      <updated>1393428810335</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -631,7 +640,8 @@
     </option>
     <MESSAGE value="Automatically Scroll to Current Date" />
     <MESSAGE value="Reduce Cache Time to 6 Hours" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reduce Cache Time to 6 Hours" />
+    <MESSAGE value="Reformat Source" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformat Source" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -640,22 +650,8 @@
     <entry file="file://$PROJECT_DIR$/Games/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Games/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="27" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="374">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Games/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="18" selection-start="665" selection-end="665" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1377">
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -663,27 +659,6 @@
     <entry file="file://$PROJECT_DIR$/Games/templates/games.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="29" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Games/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Games/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="27" selection-start="246" selection-end="246" vertical-scroll-proportion="0.18763797" vertical-offset="0" max-vertical-offset="906">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Games/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
           <folding />
         </state>
       </provider>
@@ -711,28 +686,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/patrickspeiser_at/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/patrickspeiser_at/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="67" selection-start="972" selection-end="972" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2754">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Games/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="623">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Games/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="623">
+        <state line="15" column="45" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
           <folding />
         </state>
       </provider>
@@ -744,12 +698,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Games/views.py">
+    <entry file="file://$PROJECT_DIR$/patrickspeiser_at/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="38" selection-start="413" selection-end="413" vertical-scroll-proportion="0.3846154" vertical-offset="25" max-vertical-offset="1547">
+        <state line="96" column="25" selection-start="3441" selection-end="3441" vertical-scroll-proportion="0.0" vertical-offset="1519" max-vertical-offset="2754">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Games/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="623">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Games/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="36" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Games/games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="19" selection-start="354" selection-end="354" vertical-scroll-proportion="0.35473517" vertical-offset="0" max-vertical-offset="1530">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,5 @@
 from django.conf.urls import *
-import views
+import games
 
 urlpatterns = patterns('',
-                       (r'^$', views.games))
+                       (r'^$', games.games))

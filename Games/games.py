@@ -1,9 +1,8 @@
+import os
+TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'Games').replace('\\', '/'),)
+
 from django.views.decorators.cache import cache_page
 from django.shortcuts import render
-
-import os
-
-TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'Games', 'templates').replace('\\', '/'),)
 
 from datetime import date, datetime
 
