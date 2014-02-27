@@ -1,9 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+    <style>
+    </style>
+
 </head>
+
 <body>
-    Hello World
+
+<div class="navbar navbar-default" id="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <spcan class="icon-bar"></spcan>
+            </button>
+            <div class="navbar-brand">Patrick Speiser</div>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#about">About</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#certificates">Zertifikate</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id='content' class="tab-content">
+    <div class="tab-pane active" id="about">
+        <p>
+
+        <h2>Patrick Speiser</h2>
+
+        <div>Student</div>
+        </p>
+    </div>
+
+    <div class="tab-pane" id="certificates">
+
+        <h1>Udacity</h1>
+
+        <div class="list-group">
+            <a href="static/CS101.pdf" target="_blank" class="list-group-item">Introduction To Computer Science
+                Building A Search Engine (CS101)</a>
+            <a href="static/CS212.pdf" target="_blank" class="list-group-item">Design of Computer Programs Programming
+                Principles
+                (CS212)</a>
+            <a href="static/CS215.pdf" target="_blank" class="list-group-item">Algorithms
+                Crunching Social Networks (CS 215)</a>
+            <a href="static/CS253.pdf" target="_blank" class="list-group-item">Web Application Engineering:
+                How to Build a Blog (CS253)</a>
+            <a href="static/CS258.pdf" target="_blank" class="list-group-item">Software Testing
+                How to Make Software Fail (CS258)</a>
+            <a href="static/CS262.pdf" target="_blank" class="list-group-item">Programming Languages
+                Building a Web Browser (CS262)</a>
+        </div>
+
+        <h1>Coursera</h1>
+
+        <div class="list-group">
+            <a href="static/AlgoClass.pdf" target="_blank" class="list-group-item">Algorithms: Design and
+                Analysis, Part I</a>
+            <a href="static/Coursera interactivepython 2013.pdf" target="_blank" class="list-group-item">An Introduction
+                to Interactive
+                Programming in Python</a>
+            <a href="static/Game Theory Class.pdf" target="_blank" class="list-group-item">Game Theory</a>
+        </div>
+
+        <h1>Various</h1>
+
+        <div class="list-group">
+            <a href="static/aiclass.pdf" target="_blank" class="list-group-item">Introduction To Artificial
+                Intelligence</a>
+            <a href="static/mlclass.pdf" target="_blank" class="list-group-item">Introduction to Machine Learning</a>
+        </div>
+    </div>
+    <div class="tab-pane" id="contact">
+        <ul>
+            <li>Email: <a href="mailto:mail@patrickspeiser.at">mail@patrickspeiser.at</a></li>
+        </ul>
+    </div>
+</div>
+<script>
+    $('#navigation a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+
+</script>
 </body>
 </html>
