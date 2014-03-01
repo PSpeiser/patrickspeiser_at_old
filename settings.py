@@ -1,24 +1,40 @@
-import os
 # Django settings for patrickspeiser_at project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+# ('Your Name', 'your_email@example.com'),
 )
+
+
+def generate_secret_key(location):
+    from django.utils.crypto import get_random_string
+    chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+    secret_key = get_random_string(50, chars)
+    f = open(location,'w')
+    f.write("SECRET_KEY='%s'" % secret_key)
+    f.close()
+
+try:
+    from secret_key import *
+except ImportError:
+    import os
+    SETTINGS_DIR = os.path.abspath(os.path.dirname(__file__))
+    generate_secret_key(os.path.join(SETTINGS_DIR, 'secret_key.py'))
+    from secret_key import *
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'patrickspeiser_at.sqlite3',                      # Or path to database file if using sqlite3.
+        'NAME': 'patrickspeiser_at.sqlite3', # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'HOST': '', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '', # Set to empty string for default.
     }
 }
 
@@ -85,17 +101,14 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'mg(q(jws#1e-=9w_aju)c5zdglg9jkdvn5*w-)f#egoq(28a^e'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    #     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -108,15 +121,15 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'patrickspeiser_at.urls'
+ROOT_URLCONF = 'urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'patrickspeiser_at.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 import os
-TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'Games', 'templates').replace('\\','/'),
-                 os.path.join(os.path.dirname(__file__), '..', 'Homepage', 'templates').replace('\\','/'),
-                )
+
+TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '', '', 'templates').replace('\\', '/'),
+)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -130,6 +143,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'Games',
+    'Homepage',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
