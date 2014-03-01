@@ -16,6 +16,6 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^games','Games.games.games',name='games'),
     url(r'^$', 'Homepage.homepage.home', name='home'),
-
+    url(r'^robots.txt$','Robots.robots.robots',name='robots.txt'),
 
 )
