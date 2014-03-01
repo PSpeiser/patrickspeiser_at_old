@@ -144,6 +144,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'Games',
     'Homepage',
+    'BookSearcher',
+
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
