@@ -14,7 +14,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-    url(r'^book/(.*)','BookSearcher.booksearcher.book'),
+    url(r'^book/(.*).json','BookSearcher.booksearcher.book_json'),
+    url(r'^shelf/(.*).json','BookSearcher.booksearcher.shelf_json'),
     url(r'^shelf/(.*)','BookSearcher.booksearcher.shelf'),
     url(r'^search_genre/(.*)','BookSearcher.booksearcher.search_genre'),
 

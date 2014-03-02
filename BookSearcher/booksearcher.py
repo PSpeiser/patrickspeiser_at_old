@@ -2,11 +2,13 @@ import xmltodict
 import urllib2
 from json_functions import json_response
 from models import Book,Shelf,Shelved
+from django.http import HttpResponse
+from django.shortcuts import render
 
 
 key = 'KMi0fKJU9NYgHcb9vMGA7A'
 
-def book(request, bookid):
+def book_json(request, bookid):
     book,created = Book.objects.get_or_create(goodreads_id=bookid)
     if created:
         url = 'https://www.goodreads.com/book/show/%s?format=xml&key=%s' % (bookid, key)
@@ -39,6 +41,18 @@ def book(request, bookid):
 
 def shelf(request,shelf_name):
     shelf = Shelf.objects.get(name=shelf_name)
+    books = []
+    for shelved in shelf.shelved_set.all():
+            books.append({'title':shelved.book.title,
+                          'author':shelved.book.author,
+                          'average_rating':shelved.book.average_rating,
+                          'ratings_count':shelved.book.ratings_count,
+                          'score':shelved.book.ratings_sum,
+                          'shelved': shelved.shelved_times})
+    return render(request,'shelf.html',{'books':books})
+
+def shelf_json(request,shelf_name):
+    shelf = Shelf.objects.get(name=shelf_name)
     return json_response(request,shelf.dict)
 
 
@@ -46,8 +60,11 @@ maxbooks = 1000
 maxpages = maxbooks / 20
 
 def search_genre(request,genre):
+    return HttpResponse(search_genre_internal(genre))
+
+def search_genre_internal(genre):
     url = 'https://www.goodreads.com/search.xml?key=%s&q=%s&page=' % (key,genre)
-    print url
+    yield "<div>Searching for %s</div>" % genre
     page = 1
     totalresults = 1
     receivedresults = 0
@@ -57,12 +74,9 @@ def search_genre(request,genre):
         xml = xmltodict.parse(s)
         totalresults = int(xml['GoodreadsResponse']['search']['total-results'])
         receivedresults = int(xml['GoodreadsResponse']['search']['results-end'])
-        print "Retrieved %s of %s results" % (receivedresults,totalresults)
+        yield "<div>Retrieved %s of %s results</div>" % (receivedresults,totalresults)
         works = xml['GoodreadsResponse']['search']['results']['work']
         for work in works:
             #needs to be changed to a queue addition, not a view call
             book(None,work['best_book']['id']['#text'])
         page += 1
-    print 'Found %s matching books' % len(new_works)
-    return new_works
-    return HttpResponse("Searching %s" % genre)
