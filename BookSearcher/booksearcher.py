@@ -61,7 +61,8 @@ def shelf(request,shelf_name):
                           'average_rating':shelved.book.average_rating,
                           'ratings_count':shelved.book.ratings_count,
                           'score':shelved.book.ratings_sum,
-                          'shelved': shelved.shelved_times})
+                          'shelved': shelved.shelved_times,
+                          'url':'https://www.goodreads.com/book/show/%s' % shelved.book.goodreads_id})
     except:
         books = []
 
