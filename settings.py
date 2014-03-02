@@ -6,7 +6,9 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
 # ('Your Name', 'your_email@example.com'),
 )
+from os.path import dirname, join
 
+PROJECT_DIR = dirname(__file__)
 
 def generate_secret_key(location):
     from django.utils.crypto import get_random_string
@@ -29,7 +31,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'patrickspeiser_at.sqlite3', # Or path to database file if using sqlite3.
+        'NAME': join(PROJECT_DIR,'patrickspeiser_at.sqlite3'), # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
