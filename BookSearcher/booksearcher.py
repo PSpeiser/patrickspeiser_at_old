@@ -16,7 +16,7 @@ def books(request):
                    "science",
                    "technology",
                    "programming",
-                   "computer-Science",
+                   "computer-science",
                    "non-fiction"]
     return render(request,'books.html',{'suggestions':suggestions})
 
