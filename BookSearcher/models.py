@@ -49,3 +49,6 @@ class Shelved(models.Model):
     shelf = models.ForeignKey(Shelf)
     shelved_times = models.IntegerField(default=0)
 
+class QueuedBook(models.Model):
+    goodreadsid = models.IntegerField(unique=True)
+

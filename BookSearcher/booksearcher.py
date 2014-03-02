@@ -1,7 +1,7 @@
 import xmltodict
 import urllib2
 from json_functions import json_response
-from models import Book,Shelf,Shelved
+from models import Book,Shelf,Shelved,QueuedBook
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -21,6 +21,11 @@ def books(request):
     return render(request,'books.html',{'suggestions':suggestions})
 
 def book_json(request, bookid):
+    book = get_book(bookid)
+    return json_response(request,book.dict)
+
+
+def get_book(bookid):
     book,created = Book.objects.get_or_create(goodreads_id=bookid)
     if created:
         url = 'https://www.goodreads.com/book/show/%s?format=xml&key=%s' % (bookid, key)
@@ -46,10 +51,8 @@ def book_json(request, bookid):
                     shelved,created = Shelved.objects.get_or_create(book = book,shelf=shelf)
                     shelved.shelved_times = xml_shelf['@count']
                     shelved.save()
-    #Ugly
-    if request is None:
-        return created
-    return json_response(request,book.dict)
+    return book
+
 
 def shelf(request,shelf_name):
     try:
@@ -98,9 +101,19 @@ def search_shelf_internal(shelf_name):
         yield "<div>Retrieved %s of %s results</div>" % (receivedresults,totalresults)
         works = xml['GoodreadsResponse']['search']['results']['work']
         for work in works:
-            #needs to be changed to a queue addition, not a view call
             try:
-                book_json(None,work['best_book']['id']['#text'])
+                queuedBook = QueuedBook(goodreadsid = work['best_book']['id']['#text'])
+                queuedBook.save()
             except:
                 pass
         page += 1
+
+def search_queued_books(request):
+    return HttpResponse(search_queued_books_internal())
+
+def search_queued_books_internal():
+     for queuedBook in QueuedBook.objects.all():
+        book = get_book(queuedBook.goodreadsid)
+        yield "<div>Searched %s</div>" % book.title
+        queuedBook.delete()
+     yield "Searched all queued Books"
