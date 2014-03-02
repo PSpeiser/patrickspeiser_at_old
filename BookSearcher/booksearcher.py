@@ -113,7 +113,10 @@ def search_queued_books(request):
 
 def search_queued_books_internal():
      for queuedBook in QueuedBook.objects.all():
-        book = get_book(queuedBook.goodreadsid)
-        yield "<div>Searched %s</div>" % book.title
-        queuedBook.delete()
+        try:
+            book = get_book(queuedBook.goodreadsid)
+            yield "<div>Searched %s</div>" % book.title
+            queuedBook.delete()
+        except Exception as e:
+            yield "<div>%s</div>" % e.message
      yield "Searched all queued Books"
