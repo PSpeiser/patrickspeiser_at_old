@@ -78,5 +78,5 @@ def search_genre_internal(genre):
         works = xml['GoodreadsResponse']['search']['results']['work']
         for work in works:
             #needs to be changed to a queue addition, not a view call
-            book(None,work['best_book']['id']['#text'])
+            book_json(None,work['best_book']['id']['#text'])
         page += 1
