@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^book/(.*).json','BookSearcher.booksearcher.book_json'),
     url(r'^shelf/(.*).json','BookSearcher.booksearcher.shelf_json'),
     url(r'^shelf/(.*)','BookSearcher.booksearcher.shelf'),
-    url(r'^search_genre/(.*)','BookSearcher.booksearcher.search_genre', name='search_genre'),
+    url(r'^search_shelf/(.*)', 'BookSearcher.booksearcher.search_shelf', name='search_shelf'),
 
 
 

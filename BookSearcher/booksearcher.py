@@ -43,7 +43,7 @@ def shelf(request,shelf_name):
     try:
         shelf = Shelf.objects.get(name=shelf_name)
     except:
-        return search_genre(request,shelf_name)
+        return search_shelf(request,shelf_name)
     books = []
     for shelved in shelf.shelved_set.all():
             books.append({'title':shelved.book.title,
@@ -52,7 +52,7 @@ def shelf(request,shelf_name):
                           'ratings_count':shelved.book.ratings_count,
                           'score':shelved.book.ratings_sum,
                           'shelved': shelved.shelved_times})
-    return render(request,'shelf.html',{'books':books,'genre':shelf_name})
+    return render(request,'shelf.html',{'books':books,'shelf':shelf_name})
 
 def shelf_json(request,shelf_name):
     shelf = Shelf.objects.get(name=shelf_name)
@@ -62,12 +62,12 @@ def shelf_json(request,shelf_name):
 maxbooks = 1000
 maxpages = maxbooks / 20
 
-def search_genre(request,genre):
-    return HttpResponse(search_genre_internal(genre))
+def search_shelf(request,shelf_name):
+    return HttpResponse(search_shelf_internal(shelf_name))
 
-def search_genre_internal(genre):
-    url = 'https://www.goodreads.com/search.xml?key=%s&q=%s&page=' % (key,genre)
-    yield "<div>Searching for %s</div>" % genre
+def search_shelf_internal(shelf_name):
+    url = 'https://www.goodreads.com/search.xml?key=%s&q=%s&page=' % (key,shelf_name)
+    yield "<div>Searching for %s</div>" % shelf_name
     page = 1
     totalresults = 1
     receivedresults = 0
