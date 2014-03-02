@@ -8,6 +8,18 @@ from django.shortcuts import render
 
 key = 'KMi0fKJU9NYgHcb9vMGA7A'
 
+def books(request):
+    suggestions = ["fantasy",
+                   "science-fiction",
+                   "40k",
+                   "popular-science",
+                   "science",
+                   "technology",
+                   "programming",
+                   "computer-Science",
+                   "non-fiction"]
+    return render(request,'books.html',{'suggestions':suggestions})
+
 def book_json(request, bookid):
     book,created = Book.objects.get_or_create(goodreads_id=bookid)
     if created:
@@ -42,16 +54,18 @@ def book_json(request, bookid):
 def shelf(request,shelf_name):
     try:
         shelf = Shelf.objects.get(name=shelf_name)
-    except:
-        return search_shelf(request,shelf_name)
-    books = []
-    for shelved in shelf.shelved_set.all():
+        books = []
+        for shelved in shelf.shelved_set.all():
             books.append({'title':shelved.book.title,
                           'author':shelved.book.author,
                           'average_rating':shelved.book.average_rating,
                           'ratings_count':shelved.book.ratings_count,
                           'score':shelved.book.ratings_sum,
                           'shelved': shelved.shelved_times})
+    except:
+        books = []
+
+
     return render(request,'shelf.html',{'books':books,'shelf':shelf_name})
 
 def shelf_json(request,shelf_name):
@@ -63,7 +77,10 @@ maxbooks = 1000
 maxpages = maxbooks / 20
 
 def search_shelf(request,shelf_name):
-    return HttpResponse(search_shelf_internal(shelf_name))
+    response = HttpResponse(search_shelf_internal(shelf_name))
+    response['X-Accel-Buffering'] = "no"
+    return response
+
 
 def search_shelf_internal(shelf_name):
     url = 'https://www.goodreads.com/search.xml?key=%s&q=%s&page=' % (key,shelf_name)

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books</title>
+</head>
+<body>
+{% for suggestion in suggestions %}
+    <div>
+        <a href="{% url 'shelf' suggestion %}">{{ suggestion }}</a>
+    </div>
+{% endfor %}
+
+</body>
+</html>
