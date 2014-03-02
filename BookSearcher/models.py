@@ -42,7 +42,7 @@ class Book(models.Model):
                 }
     @property
     def average_rating(self):
-        return float(self.ratings_sum) / self.ratings_count
+        return float(self.ratings_sum) / max(1,self.ratings_count)
 
 class Shelved(models.Model):
     book = models.ForeignKey(Book)

@@ -40,7 +40,10 @@ def book_json(request, bookid):
     return json_response(request,book.dict)
 
 def shelf(request,shelf_name):
-    shelf = Shelf.objects.get(name=shelf_name)
+    try:
+        shelf = Shelf.objects.get(name=shelf_name)
+    except:
+        return search_genre(request,shelf_name)
     books = []
     for shelved in shelf.shelved_set.all():
             books.append({'title':shelved.book.title,
@@ -49,7 +52,7 @@ def shelf(request,shelf_name):
                           'ratings_count':shelved.book.ratings_count,
                           'score':shelved.book.ratings_sum,
                           'shelved': shelved.shelved_times})
-    return render(request,'shelf.html',{'books':books})
+    return render(request,'shelf.html',{'books':books,'genre':shelf_name})
 
 def shelf_json(request,shelf_name):
     shelf = Shelf.objects.get(name=shelf_name)
@@ -78,5 +81,8 @@ def search_genre_internal(genre):
         works = xml['GoodreadsResponse']['search']['results']['work']
         for work in works:
             #needs to be changed to a queue addition, not a view call
-            book_json(None,work['best_book']['id']['#text'])
+            try:
+                book_json(None,work['best_book']['id']['#text'])
+            except:
+                pass
         page += 1
