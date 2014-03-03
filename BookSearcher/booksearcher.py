@@ -45,12 +45,15 @@ def get_book(bookid):
         if 'popular_shelves' in xml:
             if xml['popular_shelves']:
                 for xml_shelf in xml['popular_shelves']['shelf']:
-                    shelf,created = Shelf.objects.get_or_create(name= xml_shelf['@name'])
-                    if created:
-                        shelf.save()
-                    shelved,created = Shelved.objects.get_or_create(book = book,shelf=shelf)
-                    shelved.shelved_times = xml_shelf['@count']
-                    shelved.save()
+                    try:
+                        shelf,created = Shelf.objects.get_or_create(name= xml_shelf['@name'])
+                        if created:
+                            shelf.save()
+                        shelved,created = Shelved.objects.get_or_create(book = book,shelf=shelf)
+                        shelved.shelved_times = xml_shelf['@count']
+                        shelved.save()
+                    except:
+                        pass
     return book
 
 
