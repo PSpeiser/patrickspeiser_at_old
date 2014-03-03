@@ -4,35 +4,55 @@
     <title>{{ shelf }}</title>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
     <script>
+        $.extend($.fn.dataTableExt.oStdClasses, {
+            "sSortAsc": "header headerSortDown",
+            "sSortDesc": "header headerSortUp",
+            "sSortable": "header"
+        });
         $(document).ready(function () {
             $("#table").dataTable({
-                "bPaginate": false
+                "bPaginate": false,
+                "bFilter": false,
+                "sDom": "<'row'<'span8'l><'span8'f>r>t<'row'<'span8'i><'span8'p>>"
             });
         });</script>
+    <style>
+    </style>
 </head>
 <body>
-<div><a href="{% url 'search_shelf' shelf%}?start_page=1&max_results=1000">Search Shelf for Books</a></div>
-<table id="table" border="3">
+<div><a href="{% url 'search_shelf' shelf %}?start_page=1&max_results=1000">Scrape Goodreads for Books</a></div>
+<table id="table" class="bordered-table zebra-striped" border="3">
     <thead>
-    <td>Name</td>
-    <td>Author</td>
-    <td>Rating</td>
-    <td>Ratings</td>
-    <td>Score</td>
-    <td>Shelved</td>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Average Rating</th>
+        <th>Ratings</th>
+        <th>Score</th>
+        <th>Shelved
+    </tr>
     </thead>
     {% for book in books %}
-    <tr>
-        <td>
-            <a href="{{ book.url }}">{{ book.title }}</a>
-        </td>
-        <td>{{ book.author }}</td>
-        <td>{{ book.average_rating }}</td>
-        <td>{{ book.ratings_count }}</td>
-        <td>{{ book.score }}</td>
-        <td>{{ book.shelved }}</td>
-    </tr>
+        <tr>
+            <td>
+                <a href="{{ book.url }}">{{ book.title }}</a>
+            </td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.average_rating }}</td>
+            <td>{{ book.ratings_count }}</td>
+            <td>{{ book.score }}</td>
+            <td>{{ book.shelved }}</td>
+        </tr>
     {% endfor %}
 </table>
 </body>
