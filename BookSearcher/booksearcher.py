@@ -86,30 +86,27 @@ def shelf_json(request, shelf_name):
     shelf = Shelf.objects.get(name=shelf_name)
     return json_response(request, shelf.dict)
 
-
-maxbooks = 1000
-maxpages = maxbooks / 20
-
-
 def search_shelf(request, shelf_name):
-    response = HttpResponse(search_shelf_internal(shelf_name))
+    start_page = int(request.GET.get('start_page',1))
+    max_results = int(request.GET.get('max_results',1000))
+    response = HttpResponse(search_shelf_internal(shelf_name,start_page,max_results))
     response['X-Accel-Buffering'] = "no"
     return response
 
 
-def search_shelf_internal(shelf_name):
+def search_shelf_internal(shelf_name,start_page=1,max_results=1000):
     url = 'https://www.goodreads.com/search.xml?key=%s&q=%s&page=' % (key, shelf_name)
     yield "<div>Searching for %s</div>" % shelf_name
-    page = 1
+    page = start_page
     totalresults = 1
     receivedresults = 0
-    new_works = []
+    maxpages = max_results / 20
     while receivedresults < totalresults and page <= maxpages:
         s = urllib2.urlopen(url + str(page)).read()
         xml = xmltodict.parse(s)
         totalresults = int(xml['GoodreadsResponse']['search']['total-results'])
         receivedresults = int(xml['GoodreadsResponse']['search']['results-end'])
-        yield "<div>Retrieved %s of %s results</div>" % (receivedresults, totalresults)
+        yield "<div>Retrieved %s of %s results. %s Pages</div>" % (receivedresults, totalresults,page)
         works = xml['GoodreadsResponse']['search']['results']['work']
         for work in works:
             try:
