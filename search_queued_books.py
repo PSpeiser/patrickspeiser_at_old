@@ -10,3 +10,4 @@ def search_queued_books():
         print "Searched %s" % book.title
         queuedBook.delete()
     print "Searched all queued Books"
+search_queued_books()
