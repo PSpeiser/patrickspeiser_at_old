@@ -19,8 +19,5 @@ urlpatterns = patterns('',
     url(r'^shelf/(.*)','BookSearcher.booksearcher.shelf',name='shelf'),
     url(r'^search_shelf/(.*)', 'BookSearcher.booksearcher.search_shelf', name='search_shelf'),
     url(r'^$','BookSearcher.booksearcher.books',name='books'),
-    url(r'^search_queued_books','BookSearcher.booksearcher.search_queued_books',name='search_queued_books')
-
-
 
 )

@@ -108,15 +108,10 @@ def search_shelf_internal(shelf_name):
                 pass
         page += 1
 
-def search_queued_books(request):
-    return HttpResponse(search_queued_books_internal())
-
-def search_queued_books_internal():
-     for queuedBook in QueuedBook.objects.all():
-        try:
-            book = get_book(queuedBook.goodreadsid)
-            yield "<div>Searched %s</div>" % book.title
-            queuedBook.delete()
-        except Exception as e:
-            yield "<div>%s</div>" % e.message
-     yield "Searched all queued Books"
+def search_queued_books():
+    print "Searching %s Books" % len(QueuedBook.objects.all())
+    for queuedBook in QueuedBook.objects.all():
+        book = get_book(queuedBook.goodreadsid)
+        print "Searched %s" % book.title
+        queuedBook.delete()
+    print "Searched all queued Books"
