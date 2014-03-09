@@ -18,5 +18,6 @@ urlpatterns = patterns('',
     url(r'^$', 'Homepage.homepage.home', name='home'),
     url(r'^robots.txt$','Robots.robots.robots',name='robots.txt'),
     url(r'^books/',include('BookSearcher.urls')),
+    url(r'^tweetrss/',include('tweetrss.urls')),
 
 )
