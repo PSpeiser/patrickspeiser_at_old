@@ -4,6 +4,7 @@
     <title>TweetRSS</title>
 </head>
 <body>
+{% include 'header.html' %}
     Enter a Twitter Username and get his Tweets as an RSS Feed
     <form name="input" onsubmit="window.location = document.getElementById('username').value;return false;">
         Username: <input type="text" id="username">
