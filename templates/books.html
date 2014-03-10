@@ -3,12 +3,20 @@
 <head>
     <title>Books</title>
     {% include 'header.html' %}
+    <style>
+        #content {
+            margin-left: 1em;
+        }
+    </style>
 </head>
 <body>
-{% for suggestion in suggestions %}
-    <div>
-        <a href="{% url 'shelf' suggestion %}?min_rating=4.0&min_shelved=10&min_ratings=1000">{{ suggestion }}</a>
-    </div>
-{% endfor %}
+<div id="content">
+    Genre:
+    {% for suggestion in suggestions %}
+        <div>
+            <a href="{% url 'shelf' suggestion %}?min_rating=4.0&min_shelved=10&min_ratings=1000">{{ suggestion }}</a>
+        </div>
+    {% endfor %}
+</div>
 </body>
 </html>
