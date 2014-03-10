@@ -1,6 +1,10 @@
 import PyRSS2Gen
 import datetime
 from django.http import HttpResponse
+from django.shortcuts import render
+
+def home(request):
+    return render(request,'tweetrss.html')
 
 def rssfeed(request, username):
     import twitter
