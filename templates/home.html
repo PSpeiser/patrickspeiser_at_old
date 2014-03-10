@@ -128,8 +128,8 @@
     </div>
     <div class="tab-pane" id="projects">
         <div class="list-group">
-            <a href="games" target="_blank" class="list-group-item">Spiele Release Liste</a>
-            <a href="books" target="_blank" class="list-group-item">Buchempfehler</a>
+            <a href="{% url 'games' %}" target="_blank" class="list-group-item">Spiele Release Liste</a>
+            <a href="{% url 'booksearcher_home' %}" target="_blank" class="list-group-item">Buchempfehler</a>
             <a href="{% url 'tweetrss_home' %}" target="_blank" class="list-group-item">TweetRSS</a>
         </div>
     </div>

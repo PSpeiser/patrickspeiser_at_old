@@ -9,7 +9,7 @@ from django.shortcuts import render
 key = 'KMi0fKJU9NYgHcb9vMGA7A'
 
 
-def books(request):
+def home(request):
     suggestions = ["fantasy",
                    "science-fiction",
                    "40k",
