@@ -2,16 +2,8 @@
 <html>
 <head>
     <title>{{ shelf }}</title>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    {% include 'header.html' %}
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     <script>
         $.extend($.fn.dataTableExt.oStdClasses, {
@@ -30,7 +22,6 @@
     </style>
 </head>
 <body>
-{% include 'header.html' %}
 <div><a href="{% url 'search_shelf' shelf %}?start_page=1&max_results=1000">Scrape Goodreads for Books</a></div>
 <table id="table" class="bordered-table zebra-striped" border="3">
     <thead>
