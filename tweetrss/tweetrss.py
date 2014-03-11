@@ -23,7 +23,7 @@ def rssfeed(request, username):
         items=[
             PyRSS2Gen.RSSItem(
                 title=s.text,
-                description=s.text,
+                description=make_twitter_links_clickable(s.text),
                 pubDate=s.created_at,
                 link= "https://twitter.com/%s/status/%s" % (username,s.id)
             )
@@ -32,3 +32,7 @@ def rssfeed(request, username):
     )
 
     return HttpResponse(rss.to_xml(),content_type="application/xml")
+
+def make_twitter_links_clickable(text):
+    import re
+    return re.compile(r'(http:\/\/t\.co\/[a-zA-Z0-9]+)').sub(r'<a href="\1">\1</a>', text)
