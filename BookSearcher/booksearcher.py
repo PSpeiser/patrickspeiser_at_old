@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
-key = 'KMi0fKJU9NYgHcb9vMGA7A'
+from config import DEVELOPER_KEY
 
 
 def home(request):
@@ -30,7 +30,7 @@ def book_json(request, bookid):
 def get_book(bookid):
     book, created = Book.objects.get_or_create(goodreads_id=bookid)
     if created:
-        url = 'https://www.goodreads.com/book/show/%s?format=xml&key=%s' % (bookid, key)
+        url = 'https://www.goodreads.com/book/show/%s?format=xml&key=%s' % (bookid, DEVELOPER_KEY)
         s = urllib2.urlopen(url).read()
         xml = xmltodict.parse(s)['GoodreadsResponse']['book']
 
@@ -95,7 +95,7 @@ def search_shelf(request, shelf_name):
 
 
 def search_shelf_internal(shelf_name,start_page=1,max_results=1000):
-    url = 'https://www.goodreads.com/search.xml?key=%s&q=%s&page=' % (key, shelf_name)
+    url = 'https://www.goodreads.com/search.xml?key=%s&q=%s&page=' % (DEVELOPER_KEY, shelf_name)
     yield "<div>Searching for %s</div>" % shelf_name
     page = start_page
     totalresults = 1
