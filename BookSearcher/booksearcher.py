@@ -19,7 +19,7 @@ def home(request):
                    "programming",
                    "computer-science",
                    "non-fiction"]
-    return render(request, 'books.html', {'suggestions': suggestions})
+    return render(request, 'booksearcher/home.html', {'suggestions': suggestions})
 
 
 def book_json(request, bookid):
@@ -79,7 +79,7 @@ def shelf(request, shelf_name):
     except:
         books = []
 
-    return render(request, 'shelf.html', {'books': books, 'shelf': shelf_name})
+    return render(request, 'booksearcher/shelf.html', {'books': books, 'shelf': shelf_name})
 
 
 def shelf_json(request, shelf_name):

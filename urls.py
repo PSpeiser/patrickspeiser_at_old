@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     url(r'^$', 'Homepage.homepage.home', name='home'),
     url(r'^certificates','Homepage.homepage.certificates',name='certificates'),
     url(r'^robots.txt$','Robots.robots.robots',name='robots.txt'),
-    url(r'^books/',include('BookSearcher.urls')),
-    url(r'^tweetrss/',include('tweetrss.urls')),
+    url(r'^books/',include('BookSearcher.urls',namespace="booksearcher")),
+    url(r'^tweetrss/',include('tweetrss.urls',namespace="tweetrss")),
 
 )
