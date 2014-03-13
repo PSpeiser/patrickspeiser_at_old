@@ -147,6 +147,8 @@ INSTALLED_APPS = (
     'Games',
     'Homepage',
     'BookSearcher',
+    'Blog',
+
 
 )
 

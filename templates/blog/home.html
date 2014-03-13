@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    {% include 'header.html' %}
+    <style>
+        #content {
+            padding-left: 5em;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    {% for post in posts %}
+        <div class="post">
+            <h2>{{ post.title }}</h2>
+            <div>{{ post.text }}</div>
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

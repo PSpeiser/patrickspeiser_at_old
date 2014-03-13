@@ -14,13 +14,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-    url(r'^games','Games.games.games',name='games'),
-    url(r'^$', 'Homepage.homepage.home', name='home'),
-    url(r'^certificates','Homepage.homepage.certificates',name='certificates'),
-    url(r'^robots.txt$','Robots.robots.robots',name='robots.txt'),
-    url(r'^books/',include('BookSearcher.urls',namespace="booksearcher")),
-    url(r'^tweetrss/',include('tweetrss.urls',namespace="tweetrss")),
-    url(r'^blog/',include('Blog.urls',namespace="blog")),
+    url(r'^$','Blog.blog.home',name='home'),
 
 
 )
