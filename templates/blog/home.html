@@ -5,7 +5,14 @@
     {% include 'header.html' %}
     <style>
         #content {
-            padding-left: 5em;
+            padding-left: 1em;
+        }
+        .post
+        {
+            border-style:solid;
+            border-width:1px;
+            margin:1em;
+            width:50em;
         }
     </style>
 </head>
@@ -14,6 +21,7 @@
     {% for post in posts %}
         <div class="post">
             <h2>{{ post.title }}</h2>
+            <h4>{{ post.date }}</h4>
             <div>{{ post.text }}</div>
         </div>
     {% endfor %}

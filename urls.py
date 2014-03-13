@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^books/',include('BookSearcher.urls',namespace="booksearcher")),
     url(r'^tweetrss/',include('tweetrss.urls',namespace="tweetrss")),
     url(r'^blog/',include('Blog.urls',namespace="blog")),
+    url(r'^chat/', include('Chat.urls',namespace="chat")),
 
 
 )

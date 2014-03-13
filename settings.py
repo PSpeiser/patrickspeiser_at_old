@@ -148,6 +148,7 @@ INSTALLED_APPS = (
     'Homepage',
     'BookSearcher',
     'Blog',
+    'Chat',
 
 
 )
