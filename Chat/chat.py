@@ -18,7 +18,7 @@ def messages_json(request):
                                    'date': message.date,
                                    'id':message.pk} for message in messages])
 
-def get_new_messages(request):
+def get_new_messages_json(request):
     last_message_id = request.GET.get('last_message_id',0)
     messages = ChatMessage.objects.filter(pk__gt=last_message_id)
     return json_response(request, [{'user': message.user,
@@ -36,3 +36,6 @@ def post_message(request):
         return json_response(request,'Success')
     else:
         return HttpResponse(request,"405 Method Not Allowed")
+
+def home(request):
+    return render(request,'chat/home.html')

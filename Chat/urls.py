@@ -7,9 +7,9 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
     url(r'^latest_message.json$', 'Chat.chat.latest_message_json',name='latest_message.json'),
     url(r'^messages.json', 'Chat.chat.messages_json',name='messages.json'),
-    url(r'^post_message.json','Chat.chat.post_message',name='post_message.json'),
-    url(r'^get_new_messages.json','Chat.chat.get_new_messages',name='get_new_messages.json'),
-
+    url(r'^post_message','Chat.chat.post_message',name='post_message'),
+    url(r'^get_new_messages.json', 'Chat.chat.get_new_messages_json',name='get_new_messages.json'),
+    url(r'^$','Chat.chat.home',name='home'),
 
 
 
