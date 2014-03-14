@@ -12,14 +12,16 @@ def latest_message_json(request):
                                    'id':message.pk})
 
 def messages_json(request):
-    messages = ChatMessage.objects.all().order_by('date')
+    messages = ChatMessage.objects.all().order_by('date')[:-5]
     return json_response(request, [{'user': message.user,
                                    'message': message.message,
                                    'date': message.date,
                                    'id':message.pk} for message in messages])
 
 def get_new_messages_json(request):
-    last_message_id = request.GET.get('last_message_id',0)
+    last_message_id = int(request.GET.get('last_message_id',0))
+    min_id = ChatMessage.objects.count() - 5
+    last_message_id = max(min_id,last_message_id)
     messages = ChatMessage.objects.filter(pk__gt=last_message_id)
     return json_response(request, [{'user': message.user,
                                    'message': message.message,
