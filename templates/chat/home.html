@@ -72,9 +72,8 @@ Chat
     $(function () { //shorthand document.ready function
         $('#myform').on('submit', function (e) { //use on if jQuery 1.7+
             e.preventDefault();  //prevent form from submitting
-            console.log($("#textinput").val()); //use the console for debugging, F12 in Chrome, not alerts
             var csrftoken = getCookie('csrftoken');
-            var postdata = {'user': "Doskir",
+            var postdata = {'user': $("#username").val(),
                 'message': $("#textinput").val(),
                 'csrfmiddlewaretoken': csrftoken};
             $.post('post_message', postdata);
