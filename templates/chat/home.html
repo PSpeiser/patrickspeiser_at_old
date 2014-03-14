@@ -14,24 +14,7 @@ Chat
     <input type="button" value="Clear History" onclick="$.post('clear_history');$('#chatwindow').empty();">
 </form>
 <script>
-    // using jQuery
     last_id = 0
-    function getCookie(name) {
-        var cookieValue = null;
-        if (document.cookie && document.cookie != '') {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = jQuery.trim(cookies[i]);
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) == (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-
     function loadNewMessages() {
         url = 'get_new_messages.json?last_message_id=' + last_id
         $.getJSON(url, function (data) {
@@ -45,7 +28,8 @@ Chat
                 }
                 div.appendTo("#chatwindow");
             });
-        })
+            loadNewMessages();
+        });
         $('html, body').animate({
                     scrollTop: $(document).height() - $(window).height()},
                 0,
@@ -57,7 +41,6 @@ Chat
     $(document).ready(function () {
         $('#textinput').keydown(function (event) {
             if (event.keyCode == 13) {
-                console.log($("#textinput").val());
                 $('#myform').submit();
                 return false;
             }
@@ -66,19 +49,14 @@ Chat
     $(function () { //shorthand document.ready function
         $('#myform').on('submit', function (e) { //use on if jQuery 1.7+
             e.preventDefault();  //prevent form from submitting
-            var csrftoken = getCookie('csrftoken');
             var postdata = {'user': $("#username").val(),
-                'message': $("#textinput").val(),
-                'csrfmiddlewaretoken': csrftoken};
+                'message': $("#textinput").val()};
             $.post('post_message', postdata);
             $("#textinput").val('');
             return false;
         });
     });
-    $(function () {
-        window.setInterval(loadNewMessages, 500);
-        loadNewMessages();
-    })
+    loadNewMessages();
 </script>
 </body>
 </html>

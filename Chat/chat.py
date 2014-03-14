@@ -22,7 +22,11 @@ def get_new_messages_json(request):
     last_message_id = int(request.GET.get('last_message_id',0))
     min_id = ChatMessage.objects.count() - 5
     last_message_id = max(min_id,last_message_id)
+    import time
     messages = ChatMessage.objects.filter(pk__gt=last_message_id)
+    while len(messages) < 1:
+        time.sleep(0.100)
+        messages = ChatMessage.objects.filter(pk__gt=last_message_id)
     return json_response(request, [{'user': message.user,
                                    'message': message.message,
                                    'date': message.date,
