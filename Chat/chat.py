@@ -33,11 +33,17 @@ def post_message(request):
         cm = ChatMessage()
         cm.user = request.POST.get('user')
         cm.message = request.POST.get('message')
+        if not cm.user or not cm.message:
+            return HttpResponse("400 Bad Request You need to specify username and message")
         cm.date = datetime.datetime.now()
         cm.save()
         return json_response(request,'Success')
     else:
-        return HttpResponse(request,"405 Method Not Allowed")
+        return HttpResponse("405 Method Not Allowed")
 
 def home(request):
     return render(request,'chat/home.html')
+
+def clear_history(request):
+    ChatMessage.objects.all().delete()
+    return HttpResponse("Deleted History");

@@ -8,9 +8,10 @@
 Chat
 <div id="chatwindow"></div>
 <form id="myform">
-    <input type="textbox" id="username" value="Username">
-    <input type="textbox" id="textinput" value="Text">
+    <input type="textbox" id="username" placeholder="Username">
+    <input type="textbox" id="textinput" placeholder="Message" onclick="">
     <input type="button" value="Submit" onclick="$('#myform').submit();">
+    <input type="button" value="Clear History" onclick="$.post('clear_history');$('#chatwindow').empty();">
 </form>
 <script>
     // using jQuery
@@ -52,18 +53,6 @@ Chat
         );
     }
 
-    $.getJSON('messages.json', function (data) {
-        $.each(data, function (i, item) {
-            div = $("<div>", {
-                'id': item.id,
-                'text': item.user + ":" + item.message
-            })
-            if (item.id > last_id) {
-                last_id = item.id;
-            }
-            div.appendTo("#chatwindow");
-        });
-    })
 
     $(document).ready(function () {
         $('#textinput').keydown(function (event) {
@@ -88,6 +77,7 @@ Chat
     });
     $(function () {
         window.setInterval(loadNewMessages, 500);
+        loadNewMessages();
     })
 </script>
 </body>
