@@ -8,13 +8,23 @@ def latest_message_json(request):
     message = ChatMessage.objects.latest(field_name='date')
     return json_response(request, {'user': message.user,
                                    'message': message.message,
-                                   'date': message.date})
+                                   'date': message.date,
+                                   'id':message.pk})
 
 def messages_json(request):
     messages = ChatMessage.objects.all().order_by('date')
     return json_response(request, [{'user': message.user,
                                    'message': message.message,
-                                   'date': message.date} for message in messages])
+                                   'date': message.date,
+                                   'id':message.pk} for message in messages])
+
+def get_new_messages(request):
+    last_message_id = request.GET.get('last_message_id',0)
+    messages = ChatMessage.objects.filter(pk__gt=last_message_id)
+    return json_response(request, [{'user': message.user,
+                                   'message': message.message,
+                                   'date': message.date,
+                                   'id':message.pk} for message in messages])
 
 def post_message(request):
     if request.method == "POST":
