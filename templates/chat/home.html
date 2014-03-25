@@ -3,6 +3,17 @@
 <head>
     <title>Chat</title>
     {% include 'header.html' %}
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        #chatwindow {
+            overflow: scroll;
+            height: 50%;
+            width: 75%;
+        }
+    </style>
 </head>
 <body>
 Chat
@@ -28,13 +39,9 @@ Chat
                 }
                 div.appendTo("#chatwindow");
             });
+            $("#chatwindow").scrollTop($("#chatwindow")[0].scrollHeight);
             loadNewMessages();
         });
-        $('html, body').animate({
-                    scrollTop: $(document).height() - $(window).height()},
-                0,
-                "linear"
-        );
     }
 
 
