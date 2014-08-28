@@ -62,7 +62,9 @@ USE_I18N = True
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale.
-USE_L10N = True
+USE_L10N = False
+DATE_FORMAT = "Y-m-d"
+DATETIME_FORMAT = "Y-m-d H:i"
 
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = False
@@ -141,7 +143,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'Games',
@@ -183,3 +185,5 @@ LOGGING = {
         },
     }
 }
+
+LOGIN_URL = '/admin'

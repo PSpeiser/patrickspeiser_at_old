@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    {% include 'header.html' %}
+    <style>
+        #content {
+            padding-left: 1em;
+
+        }
+        #text-input
+        {
+            float:left;
+        }
+        #preview
+        {
+            margin-left:1em;
+            width:50em;
+            float:left;
+            display:inline;
+        }
+        #post-title
+        {
+            margin-left:1em;
+        }
+    </style>
+    <script src="markdown.js">
+
+    </script>
+</head>
+<body>
+<form id="editor-form">
+    <input type="text" id="post-title" oninput="editor.update();"></textbox>
+    <div id="content">
+        <textarea rows="25" cols="80" id='text-input' oninput="this.editor.update()"></textarea>
+        <div id="preview" class="post">
+        </div>
+    </div>
+   <input type="button" value="Submit" onclick="$('#editor-form').submit();">
+</form>
+
+    <script>
+        $(function () { //shorthand document.ready function
+        $('#editor-form').on('submit', function (e) { //use on if jQuery 1.7+
+            e.preventDefault();  //prevent form from submitting
+            var postdata = {'title': $("#post-title").val(),
+                'text': $("#text-input").val()};
+            $.post('add_blog_post', postdata);
+            $("#text-input").val('Posted');
+            return false;
+        });
+    });
+          function Editor(input, preview) {
+            this.update = function () {
+              preview.innerHTML = "<h2>" + $("input#post-title").val() + "</h2>";
+              preview.innerHTML += markdown.toHTML(input.value);
+            };
+            input.editor = this;
+            this.update();
+          }
+          var getById = function (id) { return document.getElementById(id); };
+          var editor = new Editor(getById("text-input"), getById("preview"));
+    </script>
+</body>
+</html>

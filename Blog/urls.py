@@ -14,7 +14,10 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-    url(r'^$','Blog.blog.home',name='home'),
+    url(r'^$', 'Blog.blog.home', name='home'),
+    url(r'^editor$', 'Blog.blog.editor', name='editor'),
+    url(r'^markdown.js$', 'Blog.blog.markdown_js', name='markdown.js'),
+    url(r'^add_blog_post$', 'Blog.blog.add_blog_post', name='add_blog_post'),
 
 
 )
