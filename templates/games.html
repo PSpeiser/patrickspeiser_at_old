@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, user-scalable=no">
 <html>
 <head>
     <title>Games</title>
@@ -7,10 +8,14 @@
         .center {
             text-align: center;
         }
+        .date
+        {
+            min-width:6em;
+        }
     </style>
     <script>window.onload = function () {
-        var el = document.getElementById("target");
-        el.scrollIntoView(true);
+        el = document.getElementById("target");
+        window.scrollTo(window, el.offsetTop);
     }</script>
 </head>
 </head>
@@ -34,7 +39,7 @@
             </tr>
         {% else %}
             <tr>
-                <td>{{ game.date }}</td>
+                <td class="date">{{ game.date }}</td>
                 <td>{{ game.name }}</td>
                 <td>{{ game.platforms }}</td>
             </tr>
