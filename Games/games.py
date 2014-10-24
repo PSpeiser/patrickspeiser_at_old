@@ -4,7 +4,7 @@ from django.shortcuts import render
 from datetime import date, datetime
 
 year = date.today().year
-goodPlatforms = ['Win', 'X360', 'PS3']
+goodPlatforms = ['Win']
 
 
 @cache_page(60 * 60 * 6) #cache for 6 hours
