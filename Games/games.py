@@ -19,7 +19,7 @@ def games(request):
                                           'year': year})
 
 
-#This gets the game releases from http://en.wikipedia.org/wiki/2014_in_video_gaming?printable=yes
+#This gets the game releases from http://en.wikipedia.org/wiki/2015_in_video_gaming?printable=yes
 #Ugly Code
 def get_games_from_wikipedia():
     import urllib2
@@ -49,15 +49,15 @@ def get_games_from_wikipedia():
         lastDate = -1
         for row in rows:
             elements = row.findAll('td')
-            gamedate = elements[-3].text if len(elements) >= 3 else lastDate
+            gamedate = elements[-4].text if len(elements) >= 4 else lastDate
             #assign day 32 as a placeholder
             if gamedate == '' or gamedate == 'TBA':
                 gamedate = '32'
             gamedate = int(gamedate)
             if len(elements) < 2:
                 continue
-            name = elements[-2].text
-            platforms = elements[-1].text
+            name = elements[-3].text
+            platforms = elements[-2].text
             game = {'date': gamedate,
                     'name': name,
                     'platforms': platforms}
