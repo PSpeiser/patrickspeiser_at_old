@@ -54,7 +54,7 @@ def get_games_from_wikipedia():
             if gamedate == '' or gamedate == 'TBA':
                 gamedate = '32'
             gamedate = int(gamedate)
-            if len(elements) < 2:
+            if len(elements) < 3:
                 continue
             name = elements[-3].text
             platforms = elements[-2].text
